@@ -7,9 +7,22 @@
     <h1>Audio Collaborate</h1>
     <h2>Songs</h2>
     <h3>Baby Baby Every Night - Etta James</h3>
-    <audio controls preload="none">
-      <source preload=metadata src=http://audio-collaborate-bucket.matthewcanty.co.uk.s3.eu-west-2.amazonaws.com/170201+Baby+baby+every+night2.MP3 type=audio/mp3 />
+    <audio controls preload=none>
+      <source preload=metadata src=http://audio-collaborate-audio-bucket.matthewcanty.co.uk.s3.eu-west-2.amazonaws.com/170201+Baby+baby+every+night2.MP3 type=audio/mp3 />
       Your browser does not support the audio element.
     </audio>
+
+    <form action=http://audio-collaborate-audio-bucket.matthewcanty.co.uk.s3.eu-west-2.amazonaws.com/ method=post enctype=multipart/form-data>
+      <input type=hidden name=key value=${filename} />
+      <input type=hidden name=acl value=public-read />
+      <input type=hidden name=success_action_redirect value=http://127.0.0.1:8080/ />
+      <input type=hidden name=Content-Type value=audio/mp3 />
+      <!-- Include any additional input fields here -->
+
+      File to upload to S3:
+      <input name=file type=file />
+      <br>
+      <input type=submit value=Upload File to S3 />
+    </form>
   </body>
 </html>

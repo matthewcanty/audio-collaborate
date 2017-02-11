@@ -1,0 +1,10 @@
+#!/bin/bash
+echo building
+
+function pack {
+  cd lambda-functions/$1
+  zip -r $2.zip *
+  mv $2.zip ../../bin/$2.zip
+}
+
+pack generate-waveform waveform_lambda_function_payload

@@ -5,7 +5,7 @@ secret_key = "YOUR_SECRET_KEY"
 ```
 Then:
 ```
-$ terraform apply
+$ terraform apply terraform-configuration
 $ npm install -g http-server
 $ http-server
 ```

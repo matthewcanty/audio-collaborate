@@ -1,11 +1,5 @@
-provider "aws" {
-  access_key = "${var.access_key}"
-  secret_key = "${var.secret_key}"
-  region     = "eu-west-2"
-}
-
-resource "aws_s3_bucket" "bucket" {
-    bucket = "audio-collaborate-bucket.matthewcanty.co.uk"
+resource "aws_s3_bucket" "audio_bucket" {
+    bucket = "audio-collaborate-audio-bucket.matthewcanty.co.uk"
     acl = "public-read"
 
     cors_rule {
@@ -17,7 +11,7 @@ resource "aws_s3_bucket" "bucket" {
     }
 
     tags {
-        Name = "Big Audio Bucket"
-        Environment = "Dev"
+        Name = "Audio"
+        Environment = "${var.env}"
     }
 }
