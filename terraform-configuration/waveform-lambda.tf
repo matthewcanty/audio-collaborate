@@ -10,7 +10,7 @@ resource "aws_lambda_function" "waveform_lambda" {
     runtime = "python2.7"
     environment {
         variables = {
-            foo = "bar"
+            WAVEFORMS_BUCKET = "${aws_s3_bucket.waveforms-bucket.bucket}"
         }
     }
 }

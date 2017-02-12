@@ -16,6 +16,7 @@ resource "aws_api_gateway_method" "put_audio" {
   authorization = "NONE"
 }
 
+/*
 resource "aws_api_gateway_integration" "audio_collaborate_api_integration" {
   rest_api_id = "${aws_api_gateway_rest_api.audio_collaborate_api.id}"
   resource_id = "${aws_api_gateway_resource.audio.id}"
@@ -25,3 +26,4 @@ resource "aws_api_gateway_integration" "audio_collaborate_api_integration" {
   uri = "${aws_s3_bucket.audio_bucket.arn}/s3:Put*"
   credentials = "${aws_iam_role.iam_for_audio_bucket.arn}"
 }
+*/

@@ -76,7 +76,7 @@ def audio_uploaded_handler(event, context):
 
         generate_waveform(download_path, wave_path):
 
-        s3_client.upload_file(wave_path, '{}waveform'.format(bucket), 'waveform-{}'.format(key))
+        s3_client.upload_file(wave_path, os.environ['WAVEFORMS_BUCKET'], key)
     except Exception as e:
         print(e)
         print('Error getting object {} from bucket {}. Make sure they exist and your bucket is in the same region as this function.'.format(key, bucket))
